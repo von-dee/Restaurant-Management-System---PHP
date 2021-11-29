@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from 7oroof.com/demos/babette/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2020 10:28:17 GMT -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Babette">
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <title>Kweyi Foods</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/libraries.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/sweetalert/sweetalert2.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <input type="hidden" name="totalamount" id="totalamount">
+  <input type="hidden" name="foodsselected" id="foodsselected">
+  <input type="hidden" name="totalitems" id="totalitems">
+  <input type="hidden" name="subtotal_val" id="subtotal_val">
+
+
+  <div class="wrapper">
+    <!-- =========================
+        Header
+    =========================== -->
+    <header id="header" class="header header-transparent header-layout1">
+      <nav class="navbar navbar-expand-lg sticky-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo/logo-light.png" class="logo-light" alt="logo">
+            <img src="assets/images/logo/logo-dark.png" class="logo-dark" alt="logo">
+          </a>
+          <button class="navbar-toggler" type="button">
+            <span class="menu-lines"><span></span></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNavigation">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav__item with-dropdown">
+                <a href="home.html" class="dropdown-toggle nav__item-link">Home</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="aboutus.html" class="dropdown-toggle nav__item-link">About</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="menu.html" class="dropdown-toggle nav__item-link">Menu</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="shop.html" class="dropdown-toggle nav__item-link active">Place Order</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="contactus.html" class="dropdown-toggle nav__item-link">Contact Us</a>
+              </li><!-- /.nav-item -->
+              <!-- /.nav-item -->
+            </ul><!-- /.navbar-nav -->
+          </div><!-- /.navbar-collapse -->
+          <div class="navbar-actions-wrap">
+            <div class="navbar-actions d-flex align-items-center">
+              <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
+              <a href="reservation.html"
+                class="navbar__action-btn navbar__action-btn-reserve btn btn__primary">Place Large Order</a>
+              <a href="#" class="navbar__action-btn navbar__action-btn-cart">
+                <i class="icon-cart"></i><span class="cart__label" id="total_id">0</span>
+              </a>
+              <div class="cart-popup">
+                <ul class="list-unstyled" id="cartitems">
+                  <li class="cart-item">
+                    <div class="cart__item-content">
+                      <h6 class="cart__item-title">No Food In Cart</h6>
+                      <div class="cart__item-detail"></div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="cart-subtotal">
+                  <span>Subtotal:</span>
+                  <span class="color-theme" id="total_text">₵00.00</span>
+                </div><!-- /.cart-subtotal -->
+                <div class="cart-action d-flex justify-content-between">
+                  <a href="checkout.html" class="btn btn__primary btn__hover2">View Cart</a>
+                  <a href="checkout.html" class="btn btn__white">Checkout</a>
+                </div><!-- /.cart-action -->
+              </div><!-- /.cart-popup -->
+            </div><!-- /.navbar-actions -->
+          </div><!-- /.navbar-actions-wrap -->
+        </div><!-- /.container -->
+      </nav><!-- /.navabr -->
+    </header><!-- /.Header -->
+
+    <!-- ========================
+       page title 
+    =========================== -->
+    <section id="page-title" class="page-title page-title-layout6 text-center bg-overlay bg-overlay-2 bg-parallax">
+      <div class="bg-img"><img src="assets/images/backgrounds_kweyi/1.png" alt="background"></div>
+      <svg class="pagetitle__divider-shape" xmlns="http://www.w3.org/2000/svg" width="22" height="61"
+        viewBox="0 0 22 61">
+        <path
+          d="M799,769h2v61h-2V769Zm8,24.8a0.969,0.969,0,0,0-1.911,0,3.012,3.012,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.486,4.486,0,0,0,0,6.136,3.088,3.088,0,0,1,0,4.325,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.091,3.091,0,0,1,0-4.328,4.491,4.491,0,0,0,0-6.14,3.08,3.08,0,0,1,0-4.319,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.407,4.407,0,0,0,807,793.8Zm0-20a0.969,0.969,0,0,0-1.911,0,3.014,3.014,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.488,4.488,0,0,0,0,6.137,3.087,3.087,0,0,1,0,4.324,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.089,3.089,0,0,1,0-4.327,4.491,4.491,0,0,0,0-6.14,3.081,3.081,0,0,1,0-4.32,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.409,4.409,0,0,0,807,773.8ZM793,793.8a0.969,0.969,0,0,1,1.911,0,3.012,3.012,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.486,4.486,0,0,1,0,6.136,3.088,3.088,0,0,0,0,4.325,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.091,3.091,0,0,0,0-4.328,4.491,4.491,0,0,1,0-6.14,3.08,3.08,0,0,0,0-4.319,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.407,4.407,0,0,1,793,793.8Zm0-20a0.969,0.969,0,0,1,1.911,0,3.014,3.014,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.488,4.488,0,0,1,0,6.137,3.087,3.087,0,0,0,0,4.324,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.089,3.089,0,0,0,0-4.327,4.491,4.491,0,0,1,0-6.14,3.081,3.081,0,0,0,0-4.32,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.409,4.409,0,0,1,793,773.8Zm-4,5.2h2v41h-2V779Zm20,0h2v41h-2V779Z"
+          transform="translate(-789 -769)"></path>
+      </svg>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <span class="pagetitle__subheading">Order</span>
+            <h1 class="pagetitle__heading">Our Meals</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Place Order</li>
+              </ol>
+            </nav>
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+
+    <!-- ========================
+       shop 3 Columns
+    =========================== -->
+    <section id="shop3Columns" class="shop shop-grid shop-grid-3col pb-90">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <ul class="portfolio-filter justify-content-center">
+              <li><a class="filter active" href="#" data-filter="all">All</a></li>
+              <li><a class="filter" href="#" data-filter=".filter-monday">Monday</a></li>
+              <li><a class="filter" href="#" data-filter=".filter-tuesday">Tuesday</a></li>
+              <li><a class="filter" href="#" data-filter=".filter-wednesday">Wednesday</a></li>
+              <li><a class="filter" href="#" data-filter=".filter-thursday">Thursday</a></li>
+              <li><a class="filter" href="#" data-filter=".filter-friday">Friday</a></li>
+            </ul><!-- /.portfolio-filter  -->
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+
+
+        <div class="row filtered-items-wrap">
+          <!-- Product item #1 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-monday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/monday/jollofchicken.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Jollof Rice with  Chicken Drumsticks','20.00','1','Monday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Jollof Rice with  Chicken Drumsticks','20.00','1','Monday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                  <!-- <a href="#">Chicken Drumsticks</a> -->
+                </div>
+                <h4 class="product__title"><a href="#">Jollof Rice with  Chicken Drumsticks</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #2 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-monday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/monday/jollofgoat.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Jollof Rice with Goat Meat','25.00','1','Monday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Jollof Rice with Goat Meat','25.00','1','Monday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                  <!-- <a href="#">Goat Meat</a> -->
+                </div>
+                <h4 class="product__title"><a href="#">Jollof Rice with Goat Meat</a></h4>
+                <span class="product__price">₵25.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #3 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-monday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/monday/jolloffish.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Jollof Rice with Fish','20.00','1','Monday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Jollof Rice with Fish','20.00','1','Monday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div> 
+                <h4 class="product__title"><a href="#">Jollof Rice with Fish</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #4 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-monday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/monday/yampalava.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Yam/Plantain with Egg, Salmon and Palava Sauce','20.00','1','Monday')" class="Buy Now">Add To 
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Yam/Plantain with Egg, Salmon and Palava Sauce','20.00','1','Monday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Yam/Plantain with Palava Sauce</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #5 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-monday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/monday/yamegg.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Yam/ Plantain with Egg Stew','20.00','1','Monday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Yam/ Plantain with Egg Stew','20.00','1','Monday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Yam/Plantain with Egg Stew</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+
+
+
+          <!-- Tuesday -->
+          <!-- Product item #7 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-tuesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/tuesday/friedricegrilled.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Fried Rice with Grilled Chicken Fish','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Fried Rice with Grilled Chicken Fish','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Fried Rice with Grilled Chicken</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+
+          <!-- Product item #7 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-tuesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/tuesday/friedricefish.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Fried Rice with Fish','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Fried Rice with Fish','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Fried Rice with Fish</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #8 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-tuesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/tuesday/firedricegizzard.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Fried Rice with Sausage and Gizzard','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Fried Rice with Sausage and Gizzard','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Fried Rice with Sausage and Gizzard</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #9 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-tuesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/tuesday/kenkey.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Kenkey with Golden Fried Snapper','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Kenkey with Golden Fried Snapper','20.00','1','Tuesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Kenkey with Golden Fried Snapper</a></h4>
+                <span class="product__price">₵20.00<span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+
+          
+          <!-- Wednesday -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-wednesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/wednesday/ricewing.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Angwamo (Braised Rice) with Chicken Wings','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Angwamo (Braised Rice) with Chicken Wings','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Angwamo (Braised Rice) with Chicken Wings</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-wednesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/wednesday/ricefish.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Angwamo (Braised Rice) with Fish','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Angwamo (Braised Rice) with Fish','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Angwamo (Braised Rice) with Fish</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-wednesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/wednesday/coconut.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Angwamo (Braised Rice) with Omelette and Sardine','20.00','1','Wednesday')" class="Buy Now">Add To 
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Angwamo (Braised Rice) with Omelette and Sardine','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Angwamo (Braised Rice) with Omelette and Sardine</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-wednesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/wednesday/bankuokro.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Banku & Okro Stew','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Banku & Okro Stew','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Banku & Okro Stew</a></h4>
+                <span class="product__price">₵25.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-wednesday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/wednesday/bankutilapia.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Banku & Tilapia','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Banku & Tilapia','20.00','1','Wednesday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Banku & Tilapia </a></h4>
+                <span class="product__price">₵30.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+
+
+
+          <!-- Thursday -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-thursday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/thursday/vegchicken.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Vegetable Rice with Chicken','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Vegetable Rice with Chicken','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Vegetable Rice with Chicken</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-thursday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/thursday/vegfish.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Vegetable Rice with Fish','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Vegetable Rice with Fish','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Vegetable Rice with Fish</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-thursday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/thursday/beansfish.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Fish Beans Stew and Fried Plantain','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Fish Beans Stew and Fried Plantain','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Fish Beans Stew and Fried Plantain </a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-thursday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/thursday/beansbeef.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Beef Beans Stew and Fried Plantain','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Beef Beans Stew and Fried Plantain','20.00','1','Thursday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Beef Beans Stew and Fried Plantain </a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+
+
+          <!-- Friday -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-friday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/friday/waakye.jpg" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Waakye with Fish, Egg and Kelewele','20.00','1','Friday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Waakye with Fish, Egg and Kelewele','20.00','1','Friday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Waakye with (Fish/Meat), Egg and Kelewele</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+          <div class="col-sm-6 col-md-6 col-lg-4 mix filter-friday">
+            <div class="product-item">
+              <div class="product__img">
+                <img src="assets/images/menu/friday/yam.png" alt="Product">
+                <div class="product__hover">
+                  <div class="product__action">
+                    <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Yam Chips with Chicken Wings','20.00','1','Friday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                    <a href="#" onclick="add_to_cart('code_','soup.png','Yam Chips with Chicken Wings','20.00','1','Friday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                  </div><!-- /.product__action -->
+                </div><!-- /.product__hover-->
+              </div><!-- /.product-img -->
+              <div class="product__content">
+                <div class="product__cat">
+                  <a href="#">Pre-Order before 11:00 AM</a>
+                </div>
+                <h4 class="product__title"><a href="#">Yam Chips with Chicken Wings</a></h4>
+                <span class="product__price">₵20.00</span>
+              </div><!-- /.product-content -->
+            </div><!-- /.product-item -->
+          </div><!-- /.col-lg-4 -->
+          <!-- Product item #6 -->
+        <div class="col-sm-6 col-md-6 col-lg-4 mix filter-friday">
+          <div class="product-item">
+            <div class="product__img">
+              <img src="assets/images/menu/friday/omot.png" alt="Product">
+              <div class="product__hover">
+                <div class="product__action">
+                  <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Omotuo with Fish Groundnut Soup','20.00','1','Friday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                  <a href="#" onclick="add_to_cart('code_','soup.png','Omotuo with Fish Groundnut Soup','20.00','1','Friday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                </div><!-- /.product__action -->
+              </div><!-- /.product__hover-->
+            </div><!-- /.product-img -->
+            <div class="product__content">
+              <div class="product__cat">
+                <a href="#">Pre-Order before 11:00 AM</a>
+              </div>
+              <h4 class="product__title"><a href="#">Omotuo with Fish Groundnut Soup</a></h4>
+              <span class="product__price">₵20.00</span>
+            </div><!-- /.product-content -->
+          </div><!-- /.product-item -->
+        </div><!-- /.col-lg-4 -->
+        <!-- Product item #6 -->
+        <div class="col-sm-6 col-md-6 col-lg-4 mix filter-friday">
+          <div class="product-item">
+            <div class="product__img">
+              <img src="assets/images/menu/friday/omot2.png" alt="Product">
+              <div class="product__hover">
+                <div class="product__action">
+                  <a href="#" onclick="add_to_cart_and_buy('code_','soup.png','Omotuo with Beef Groundnut Soup','20.00','1','Friday')" class="btn btn__primary btn__hover2">Buy Now</a>
+                  <a href="#" onclick="add_to_cart('code_','soup.png','Omotuo with Beef Groundnut Soup','20.00','1','Friday')" class="btn btn__primary btn__hover2">Add To Cart</a>
+                </div><!-- /.product__action -->
+              </div><!-- /.product__hover-->
+            </div><!-- /.product-img -->
+            <div class="product__content">
+              <div class="product__cat">
+                <a href="#">Pre-Order before 11:00 AM</a>
+              </div>
+              <h4 class="product__title"><a href="#">Omotuo with Beef Groundnut Soup</a></h4>
+              <span class="product__price">₵20.00</span>
+            </div><!-- /.product-content -->
+          </div><!-- /.product-item -->
+        </div><!-- /.col-lg-4 -->
+
+        </div><!-- /.row -->
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <nav class="pagination-area">
+              <ul class="pagination justify-content-center">
+                <li><a class="current" href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+              </ul>
+            </nav><!-- /.pagination-area -->
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.shop 4 Columns -->
+
+    <!-- ========================
+      Footer
+    ========================== -->
+    <footer id="footer" class="footer footer-layout1 text-center bg-dark">
+      <div class="footer-inner">
+        <div class="container">
+          <div class="footer-top">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12 position-static">
+                <svg class="footer__divider-shape" xmlns="http://www.w3.org/2000/svg" width="22" height="61"
+                  viewBox="0 0 22 61">
+                  <path
+                    d="M799,769h2v61h-2V769Zm8,24.8a0.969,0.969,0,0,0-1.911,0,3.012,3.012,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.486,4.486,0,0,0,0,6.136,3.088,3.088,0,0,1,0,4.325,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.091,3.091,0,0,1,0-4.328,4.491,4.491,0,0,0,0-6.14,3.08,3.08,0,0,1,0-4.319,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.407,4.407,0,0,0,807,793.8Zm0-20a0.969,0.969,0,0,0-1.911,0,3.014,3.014,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.488,4.488,0,0,0,0,6.137,3.087,3.087,0,0,1,0,4.324,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.089,3.089,0,0,1,0-4.327,4.491,4.491,0,0,0,0-6.14,3.081,3.081,0,0,1,0-4.32,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.409,4.409,0,0,0,807,773.8ZM793,793.8a0.969,0.969,0,0,1,1.911,0,3.012,3.012,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.486,4.486,0,0,1,0,6.136,3.088,3.088,0,0,0,0,4.325,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.091,3.091,0,0,0,0-4.328,4.491,4.491,0,0,1,0-6.14,3.08,3.08,0,0,0,0-4.319,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.407,4.407,0,0,1,793,793.8Zm0-20a0.969,0.969,0,0,1,1.911,0,3.014,3.014,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.488,4.488,0,0,1,0,6.137,3.087,3.087,0,0,0,0,4.324,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.089,3.089,0,0,0,0-4.327,4.491,4.491,0,0,1,0-6.14,3.081,3.081,0,0,0,0-4.32,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.409,4.409,0,0,1,793,773.8Zm-4,5.2h2v41h-2V779Zm20,0h2v41h-2V779Z"
+                    transform="translate(-789 -769)"></path>
+                </svg>
+              </div><!-- /.col-lg-12 -->
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Our Address</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li>Tema Community 4 <br> Accra, Ghana</li>
+                  </ul>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-4 -->
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Opening Hours</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li>Mon - Fri: 9:00 AM - 5:00 PM</li>
+                    <li>Sat: 9:00 AM - 5:00 PM</li>
+                  </ul>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-4 -->
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Online Orders</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li><span>Main Email:</span><a href="mailto:kweyilimited@gmail.com"> kweyilimited@gmail.com</a></li>
+                    <li><span>Phone:</span><a href="tel:233246615209"> 0240416860</a></li>
+                    <li><span>Whatsapp:</span><a href="tel:233246615209"> +233240416860</a></li>
+                  </ul>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+          </div><!-- /.footer-top -->
+          <div class="footer-middle">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12 position-static">
+                <div class="footer__logo-wrap text-center">
+                  <img src="assets/images/logo/footer-logo.png" alt="logo" class="footer__logo">
+                </div>
+              </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                <p class="mb-20">
+                  Kweyi Foods is one of the best online restaurants in Accra. It is created with your favourite flavours in mind.
+                </p>
+                <a href="shop.html" class="btn btn__primary btn__bordered btn__lg">Place Order Now!</a>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </div><!-- /.footer-middle -->
+        </div><!-- /.container -->
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="footer__copyright mb-30">
+                  <span>&copy; Kweyi Foods, With Love by </span>
+                  <a href="http://vondee.me" class="color-theme">vondee.me</a>
+                </div>
+                <ul class="social__icons social__icons-white justify-content-center">
+                  <li><a href="https://www.facebook.com/kweyifoods/"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://instagram.com/kweyifoods?igshid=zs6z4x6zyavo"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul><!-- /.social__icons -->
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+          <svg class="footer__divider-shape-bottom" xmlns="http://www.w3.org/2000/svg" width="142" height="17"
+            viewBox="0 0 142 17">
+            <path
+              d="M800,600V583c8.782,15.985,46.811,11.315,56,12a35.721,35.721,0,0,1,15,5m-71,0V583c-8.782,15.985-46.811,11.315-56,12a35.717,35.717,0,0,0-15,5"
+              transform="translate(-729 -583)"></path>
+          </svg>
+        </div><!-- /.Footer-bottom -->
+      </div><!-- /.Footer-inner -->
+    </footer><!-- /.Footer -->
+    <button id="scrollTopBtn"><i class="fa fa-angle-up"></i></button>
+
+    <div class="search-popup">
+      <i class="fa fa-times close-search"></i>
+      <form class="module__search-form">
+        <input type="text" class="search__input" placeholder="Type Words Then Enter">
+        <button class="module__search-btn"><i class="fa fa-search"></i></button>
+      </form>
+    </div><!-- /.search-popup -->
+
+  </div>
+  <!-- /.wrapper -->
+
+  <input type="hidden" id="subtotal">
+  <input type="hidden" id="shipping">
+  <input type="hidden" id="ordertotal">
+  <input type="hidden" id="shipping_val">
+  <input type="hidden" id="ordertotal_val">
+  
+  
+  
+  
+  
+  
+  
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/provider.js"></script>
+  <script src="assets/sweetalert/sweetalert2.min.js"></script>
+  <script>
+    load_cart();
+  </script>
+</body>
+
+
+<!-- Mirrored from 7oroof.com/demos/babette/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2020 10:29:00 GMT -->
+</html>

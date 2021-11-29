@@ -1,0 +1,246 @@
+
+<?php //echo "LIST ";
+$rs= $paging->paginate();
+?>
+
+
+<div class="ms-content-wrapper">
+
+      <div class="row">
+        <div class="col-md-12">
+        
+            <div class="row">
+              <div class="col-6">
+                <nav aria-label="breadcrumb" class="new">
+                  <ol class="breadcrumb pl-0">
+                    <li class="breadcrumb-item"><a href="<?php echo $nav->navigate('app_dashboard')?>"><i class="material-icons">home</i> Home</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="<?php echo $nav->navigate('app_menu')?>"  style="color: black;">Menu</a></li>
+                  </ol>                
+                </nav>
+              </div>
+              <div class="col-6">
+                <button type="button" class="btn btn-info" style="float: right;height: 2em;padding: 0;" onclick="$('#pg').val('app_menu');$('#view').val('add');$('#class_call').val('');$('#keys').val('');document.myform.submit();">
+                  <i class="fa fa-plus"></i> &nbsp; &nbsp; Add
+                </button>
+              </div>
+            </div>
+
+            <div class="row">
+
+            
+            <?php 
+                if($paging->total_rows > 0 ){
+
+                    $page = (empty($page))? 1:$page;
+                    $num = (isset($page))? ($list->limit*($page-1))+1:1;
+                    
+                    $x=1;
+
+                    foreach ($rs as $val){
+                        $data =  $engine->getDataEncrypt($val);
+                        // var_dump($val); die();
+            ?>
+            
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/upload/<?php echo $val['PROD_PICTUREURL']; ?>" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+
+                      <div class="new">
+                        <h6 class="mb-0"><?php echo $val['']; ?> </h6>
+                        <h6 class="ms-text-primary mb-0" style="color: #333;">Cost Price: <b>₵<?php echo $val['PROD_PURCHASEPRICE']; ?></b></h6>
+                        <h6 class="ms-text-primary mb-0" style="color: #333;">Sales Price: <b>₵<?php echo $val['PROD_SALESPRICE']; ?></b></h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:<?php echo $val['PROD_QUANTITY']; ?> </p>
+                        <span class="badge badge-success">In Stock</span>
+                      </div>
+                      <p><?php echo $val['PROD_DESCRIPTION']; ?></p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary" onclick="$('#pg').val('app_menu');$('#view').val('');$('#class_call').val('delete');$('#keys').val('<?php echo $val['PROD_CODE']; ?>');document.myform.submit();">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary" onclick="$('#pg').val('app_menu');$('#view').val('edit');$('#class_call').val('details');$('#keys').val('<?php echo $data; ?>');document.myform.submit();">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            <?php
+                        $x= $x + 1;
+                    }
+
+                }else{
+            ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <p style="text-align: center;"><span class="badge badge-primary font-14">No Products Added</span></p>
+                </div>
+            <?php
+                }
+
+            ?>
+
+                <!-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-2.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Garlic Bread </h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:6224 </p>
+                        <span class="badge badge-primary">Out of Stock</span>
+                      </div>
+
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-3.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Veg Sandwich </h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:1467 </p>
+                        <span class="badge badge-success">In Stock</span>
+                      </div>
+
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn  grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-4.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Roast Sandwich</h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:6224 </p>
+                        <span class="badge badge-primary">Out of Stock</span>
+                      </div>
+
+
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-5.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Burger</h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:1467 </p>
+                        <span class="badge badge-success">In Stock</span>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-6.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Veggies </h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:1467 </p>
+                        <span class="badge badge-success">In Stock</span>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-7.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Pepperoni Pizza </h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:6224 </p>
+                        <span class="badge badge-primary">Out of Stock</span>
+                      </div>
+
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="ms-card">
+                    <div class="ms-card-img">
+                      <img src="media/img/costic/food-8.jpg" alt="card_img">
+                    </div>
+                    <div class="ms-card-body">
+                      <div class="new">
+                        <h6 class="mb-0">Egg McMuffin </h6>
+                        <h6 class="ms-text-primary mb-0">$45.50</h6>
+                      </div>
+                      <div class="new meta">
+                        <p>Qty:1467 </p>
+                        <span class="badge badge-success">In Stock</span>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing</p>
+                      <div class="new mb-0">
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                        <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+          </div>
+
+        </div>
+      </div>

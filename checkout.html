@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from 7oroof.com/demos/babette/shopping-cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2020 10:29:02 GMT -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Babette">
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <title>Kweyi Foods</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/libraries.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/sweetalert/sweetalert2.min.css" />
+</head>
+
+<body>
+    
+  <div class="wrapper">
+    <!-- =========================
+        Header
+    =========================== -->
+    <header id="header" class="header header-layout2">
+      <nav class="navbar navbar-expand-lg sticky-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo/logo-light.png" class="logo-light" alt="logo">
+            <img src="assets/images/logo/logo-dark.png" class="logo-dark" alt="logo">
+          </a>
+          <button class="navbar-toggler" type="button">
+            <span class="menu-lines"><span></span></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNavigation">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav__item with-dropdown">
+                  <a href="home.html" class="dropdown-toggle nav__item-link active">Home</a>
+                </li><!-- /.nav-item -->
+                <li class="nav__item with-dropdown">
+                  <a href="aboutus.html" class="dropdown-toggle nav__item-link">About</a>
+                </li><!-- /.nav-item -->
+                <li class="nav__item with-dropdown">
+                  <a href="menu.html" class="dropdown-toggle nav__item-link">Menu</a>
+                </li><!-- /.nav-item -->
+                <li class="nav__item with-dropdown">
+                  <a href="shop.html" class="dropdown-toggle nav__item-link">Place Order</a>
+                </li><!-- /.nav-item -->
+                <li class="nav__item with-dropdown">
+                  <a href="contactus.html" class="dropdown-toggle nav__item-link">Contact Us</a>
+                </li><!-- /.nav-item -->
+                <!-- /.nav-item -->
+              </ul><!-- /.navbar-nav -->
+          </div><!-- /.navbar-collapse -->
+          <div class="navbar-actions-wrap">
+            <div class="navbar-actions d-flex align-items-center">
+              <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
+              <a href="reservation.html"
+                class="navbar__action-btn navbar__action-btn-reserve btn btn__primary">Place an Order</a>
+              <a href="#" class="navbar__action-btn navbar__action-btn-cart">
+                <i class="icon-cart"></i><span class="cart__label" id="total_id">0</span>
+              </a>
+              <div class="cart-popup">
+                <ul class="list-unstyled" id="cartitems">
+                  <li class="cart-item">
+                    <div class="cart__item-content">
+                      <h6 class="cart__item-title">No Food In Cart</h6>
+                      <div class="cart__item-detail"></div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="cart-subtotal">
+                  <span>Subtotal:</span>
+                  <span class="color-theme" id="total_text">₵00.00</span>
+                </div><!-- /.cart-subtotal -->
+                <div class="cart-action d-flex justify-content-between">
+                  <!-- <a href="#" class="btn btn__primary btn__hover2">View Cart</a>
+                  <a href="checkout.html" class="btn btn__white">Checkout</a> -->
+                </div><!-- /.cart-action -->
+              </div><!-- /.cart-popup -->
+            </div><!-- /.navbar-actions -->
+          </div><!-- /.navbar-actions-wrap -->
+        </div><!-- /.container -->
+      </nav><!-- /.navabr -->
+    </header><!-- /.Header -->
+
+    <!-- ========================
+       page title 
+    =========================== -->
+    <section id="page-title" class="page-title page-title-layout7">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <h1 class="pagetitle__heading color-dark">Cart</h1>
+          </div><!-- /.col-lg-6 -->
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+              </ol>
+            </nav>
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+    <!-- =========================
+				Shopping Cart
+		=========================== -->
+    <section id="ShoppinCcart" class="shop shopping-cart pb-50">
+      <div class="container">
+
+        <form id="myForm" class="reservation__form">
+                
+
+          <!-- Actions Value -->
+          <input type="hidden" name="actions" value="push_cartcheckout">
+          <input type="hidden" name="sessioncode" value="" id="sessioncode_reservation">
+          <input type="hidden" name="apikey" value="474869734c3363443561774939744159456434704e43375567327138786a75574f36626856654b6c54727950514a4258525a667a6b53306d6e6f4d314676">
+
+
+          <input type="hidden" name="totalamount" id="totalamount">
+          <input type="hidden" name="foodsselected" id="foodsselected">
+          <input type="hidden" name="totalitems" id="totalitems">
+
+          <input type="hidden" name="subtotal" id="subtotal">
+          <input type="hidden" name="shipping" id="shipping">
+          <input type="hidden" name="ordertotal" id="ordertotal">
+
+          
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="cart-table table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Price</th>
+                      <!-- <th>Quantity</th> -->
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cartitems_checkout">
+                    <tr class="cart__product ">
+                      <td class="cart__product-item">
+                        <div class="cart__product-remove">
+                          <i class="fa fa-close"></i>
+                        </div>
+                        <div class="cart__product-img">
+                          <img src="assets/images/shop/grid/1.jpg" alt="product" />
+                        </div>
+                        <div class="cart__product-title">
+                          <h6>Roast Sea Trout</h6>
+                        </div>
+                      </td>
+                      <td class="cart__product-price">$ 10.00</td>
+                      <td class="cart__product-total">$ 10.00</td>
+                    </tr>
+
+                    <!-- <tr class="cart__product ">
+                      <td class="cart__product-item">
+                        <div class="cart__product-img">
+                          <img src="assets/images/shop/grid/3.jpg" alt="product" />
+                        </div>
+                        <div class="cart__product-title">
+                          <h6>Roasted Steak Roulade</h6>
+                        </div>
+                        <i class="fa fa-close cart__product-remove"></i>
+                      </td>
+                      <td class="cart__product-price">$ 39.00</td>
+                      <td class="cart__product-quantity">
+                        <div class="product-quantity">
+                          <div class="quantity__input-wrap">
+                            <i class="fa fa-minus decrease-qty"></i>
+                            <input type="number" value="1" class="qty-input">
+                            <i class="fa fa-plus increase-qty"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="cart__product-total">$ 39.00</td>
+                    </tr> -->
+                    <tr class="cart__product-action">
+                      <td colspan="4">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-12 col-lg-12 cart__product-action-content">
+                            <form class="d-flex flex-wrap">
+                              <input type="text" class="form-control mb-10 mr-10" placeholder="Coupon Code">
+                              <button type="submit" class="btn btn__primary mb-10">Apply
+                                Coupon</button>
+                            </form>
+                            <div>
+                              <a class="btn btn__secondary mr-10" href="#">update cart</a>
+                              <a class="btn btn__primary" href="#">Checkout</a>
+                            </div>
+                          </div><!-- /.col-lg-2  -->
+                        </div><!-- /.row  -->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div><!-- /.cart-table -->
+            </div><!-- /.col-lg-12 -->
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <div class="cart__shiping">
+                <h6>Delivery Details :</h6>
+                <div class="row">
+                  
+                  <div class="col-md-12">
+                    <!-- <input type="text" class="form-control" placeholder="Location" name="location"> -->
+
+                    <input class="form-control" style="margin-bottom: 0px !important;" id="location_fromname" name="location_fromname" placeholder="eg. Accra" onkeyup="geocodeAddress('location_fromname', 'location_fromid', this.value)"> <br>
+                    <span id="location_from_msg" class="location_msg">Location Not Known</span>
+                    <input type="hidden" id="location_fromid" name="location_fromid" value="">
+
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Your Name" name="name">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Phone Number" name="phone">                  
+                  </div>
+                  <div class="col-md-6">
+                    <!-- <input class="form-control" type="date" name="datesel">   -->
+                    <select class="form-control" name="timesel">
+                      <!-- <option value="8 AM">8:00 AM</option> -->
+                      <option value="9 AM">9:00 AM</option>
+                      <option value="10 AM">10:00 AM</option>
+                      <option value="11 AM">11:00 AM</option>
+                      <option value="12 PM">12:00 PM</option>
+                      <option value="1 PM">1:00 PM</option>
+                      <option value="2 PM">2:00 PM</option>
+                      <option value="3 PM">3:00 PM</option>
+                      <option value="4 PM">4:00 PM</option>
+                      <option value="5 PM">5:00 PM</option>
+                      <!-- <option value="6 PM">6:00 PM</option> -->
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    
+                  </div>
+                </div>
+              </div><!-- /.cart__shiping -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <div class="cart__total-amount">
+                <h6>Cart Totals :</h6>
+                <ul class="list-unstyled mb-0">
+                  <li><span>Cart Subtotal :</span><span id="subtotal_val">₵00.00</span></li>
+                  <li><span>Shipping :</span><span id="shipping_val">Not Set</span></li>
+                  <li><span>Order Total :</span><span id="ordertotal_val">₵00.00</span></li>
+                </ul>
+              </div><!-- /.cart__total-amount -->
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn__primary" style="background-color: #20a43f;border: 2px solid #0fa200;">Submit Order</button>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+          
+
+        </form>
+
+      </div><!-- /.container -->
+    </section><!-- /.shopping-cart -->
+
+    <!-- ========================
+      Footer
+    ========================== -->
+    <footer id="footer" class="footer footer-layout1 text-center bg-dark">
+        <div class="footer-inner">
+          <div class="container">
+            <div class="footer-top">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 position-static">
+                  <svg class="footer__divider-shape" xmlns="http://www.w3.org/2000/svg" width="22" height="61"
+                    viewBox="0 0 22 61">
+                    <path
+                      d="M799,769h2v61h-2V769Zm8,24.8a0.969,0.969,0,0,0-1.911,0,3.012,3.012,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.486,4.486,0,0,0,0,6.136,3.088,3.088,0,0,1,0,4.325,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.091,3.091,0,0,1,0-4.328,4.491,4.491,0,0,0,0-6.14,3.08,3.08,0,0,1,0-4.319,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.407,4.407,0,0,0,807,793.8Zm0-20a0.969,0.969,0,0,0-1.911,0,3.014,3.014,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.488,4.488,0,0,0,0,6.137,3.087,3.087,0,0,1,0,4.324,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.089,3.089,0,0,1,0-4.327,4.491,4.491,0,0,0,0-6.14,3.081,3.081,0,0,1,0-4.32,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.409,4.409,0,0,0,807,773.8ZM793,793.8a0.969,0.969,0,0,1,1.911,0,3.012,3.012,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.486,4.486,0,0,1,0,6.136,3.088,3.088,0,0,0,0,4.325,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.091,3.091,0,0,0,0-4.328,4.491,4.491,0,0,1,0-6.14,3.08,3.08,0,0,0,0-4.319,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.407,4.407,0,0,1,793,793.8Zm0-20a0.969,0.969,0,0,1,1.911,0,3.014,3.014,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.488,4.488,0,0,1,0,6.137,3.087,3.087,0,0,0,0,4.324,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.089,3.089,0,0,0,0-4.327,4.491,4.491,0,0,1,0-6.14,3.081,3.081,0,0,0,0-4.32,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.409,4.409,0,0,1,793,773.8Zm-4,5.2h2v41h-2V779Zm20,0h2v41h-2V779Z"
+                      transform="translate(-789 -769)"></path>
+                  </svg>
+                </div><!-- /.col-lg-12 -->
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <div class="contact-box">
+                    <h6 class="contact__box-title">Our Address</h6>
+                    <ul class="contact__box-list list-unstyled">
+                      <li>Tema Community 4 <br> Accra, Ghana</li>
+                    </ul>
+                  </div><!-- /.contact-box -->
+                </div><!-- /.col-lg-4 -->
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <div class="contact-box">
+                    <h6 class="contact__box-title">Opening Hours</h6>
+                    <ul class="contact__box-list list-unstyled">
+                      <li>Mon - Fri: 8:30 AM - 3:00 PM</li>
+                      <li>Sat - Sun: 9:00 AM - 3:00 PM</li>
+                    </ul>
+                  </div><!-- /.contact-box -->
+                </div><!-- /.col-lg-4 -->
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <div class="contact-box">
+                    <h6 class="contact__box-title">Online Orders</h6>
+                    <ul class="contact__box-list list-unstyled">
+                      <li><span>Main Email:</span><a href="mailto:kweyilimited@gmail.com"> kweyilimited@gmail.com</a></li>
+                      <li><span>Phone:</span><a href="tel:233246615209"> 0240416860</a></li>
+                      <li><span>Whatsapp:</span><a href="tel:233246615209"> +233240416860</a></li>
+                    </ul>
+                  </div><!-- /.contact-box -->
+                </div><!-- /.col-lg-4 -->
+              </div><!-- /.row -->
+            </div><!-- /.footer-top -->
+            <div class="footer-middle">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 position-static">
+                  <div class="footer__logo-wrap text-center">
+                    <img src="assets/images/logo/footer-logo.png" alt="logo" class="footer__logo">
+                  </div>
+                </div><!-- /.col-lg-12 -->
+              </div><!-- /.row -->
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                  <p class="mb-20">Kweyi Foods is one of the best online restaurants in Accra. It is created with your favourite flavours in mind.
+                  </p>
+                  <a href="reservation.html" class="btn btn__primary btn__bordered btn__lg">Place Large Order!</a>
+                </div><!-- /.col-lg-6 -->
+              </div><!-- /.row -->
+            </div><!-- /.footer-middle -->
+          </div><!-- /.container -->
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <div class="footer__copyright mb-30">
+                    <span>&copy; Kweyi Foods, With Love by </span>
+                    <a href="http://vondee.me" class="color-theme">vondee.me</a>
+                  </div>
+                  <ul class="social__icons social__icons-white justify-content-center">
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-tripadvisor"></i></a></li>
+                    <li><a href="https://www.facebook.com/ScheckskitchenDelivery/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  </ul><!-- /.social__icons -->
+                </div>
+              </div><!-- /.row -->
+            </div><!-- /.container -->
+            <svg class="footer__divider-shape-bottom" xmlns="http://www.w3.org/2000/svg" width="142" height="17"
+              viewBox="0 0 142 17">
+              <path
+                d="M800,600V583c8.782,15.985,46.811,11.315,56,12a35.721,35.721,0,0,1,15,5m-71,0V583c-8.782,15.985-46.811,11.315-56,12a35.717,35.717,0,0,0-15,5"
+                transform="translate(-729 -583)"></path>
+            </svg>
+          </div><!-- /.Footer-bottom -->
+        </div><!-- /.Footer-inner -->
+    </footer><!-- /.Footer -->
+    <button id="scrollTopBtn"><i class="fa fa-angle-up"></i></button>
+
+    <div class="search-popup">
+      <i class="fa fa-times close-search"></i>
+      <form class="module__search-form">
+        <input type="text" class="search__input" placeholder="Type Words Then Enter">
+        <button class="module__search-btn"><i class="fa fa-search"></i></button>
+      </form>
+    </div><!-- /.search-popup -->
+
+  </div>
+  <!-- /.wrapper -->
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/provider.js"></script>
+  <script src="assets/sweetalert/sweetalert2.min.js"></script>
+  <script>
+    load_cart();
+  </script>
+
+    <!-- Start js -->        
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALAxH03G0Wzl7nM4hc3Or_pAllfxtddD0&libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+  <script>
+
+
+    //////////////////////////// START OF GOOGLE CODES ///////////////////////////////////////// 
+    function initAutocomplete() {
+        ////////////// FREIGHT REQUEST MAP ///////////
+        
+        // document.getElementById("location_to_msg").style.display = "none";
+
+        //---------- To Request
+        var input = document.getElementById('locationname');
+        var searchBox_to = new google.maps.places.SearchBox(input);
+    
+        searchBox_to.addListener('places_changed', function() {
+            var address = document.getElementById('locationname').value;
+            console.log(address);
+
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({'address': address}, function(results, status) {
+            
+                if (status === 'OK') {
+                    var loc_code = results[0].place_id;
+                    document.getElementById('locationid').value = loc_code;
+                } else {
+                    document.getElementById("location_to_msg").style.display = "block";
+                    document.getElementById('locationid').value = "";
+                }
+            });
+
+        });
+
+
+        if(document.getElementById('location_fromname') !=null){
+            
+            document.getElementById("location_from_msg").style.display = "none";
+            
+            //----------- From Request
+            var input = document.getElementById('location_fromname');
+            var searchBox_from = new google.maps.places.SearchBox(input);
+        
+            searchBox_from.addListener('places_changed', function() {
+                var address = document.getElementById('location_fromname').value;
+                console.log(address);
+
+                var geocoder = new google.maps.Geocoder();
+
+                geocoder.geocode({'address': address}, function(results, status) {
+                
+                    if (status === 'OK') {
+                        var loc_code = results[0].place_id;
+                        document.getElementById('location_fromid').value = loc_code;
+                    } else {
+                        document.getElementById("location_from_msg").style.display = "block";
+                        document.getElementById('location_fromid').value = "";
+                    }
+                
+                });
+
+            });
+        }
+
+      }
+
+
+      function geocodeAddress(main_input, hidden_input, address) {
+
+        if(document.getElementById('location_fromname') !=null){
+            document.getElementById("location_from_msg").style.display = "none";
+        }
+        // document.getElementById("location_to_msg").style.display = "none";
+
+        var address = document.getElementById(main_input).value;
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({'address': address}, function(results, status) {
+        
+            if (status === 'OK') {
+                var loc_code = results[0].place_id;
+                document.getElementById(hidden_input).value = loc_code;
+            } else {
+                if(main_input == "location_fromname"){
+                    document.getElementById("location_from_msg").style.display = "block";
+                }else if(main_input == "locationname"){
+                    document.getElementById("location_to_msg").style.display = "block";
+                }
+                document.getElementById(hidden_input).value = "";
+            }
+        
+        });
+
+      }
+    //////////////////////////// END OF GOOGLE CODES ///////////////////////////////////////// 
+
+
+
+  </script>
+
+</body>
+
+
+<!-- Mirrored from 7oroof.com/demos/babette/shopping-cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2020 10:29:02 GMT -->
+</html>

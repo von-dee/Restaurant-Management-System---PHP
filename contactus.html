@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from 7oroof.com/demos/babette/contacts.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2020 10:25:42 GMT -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Babette">
+  <link href="assets/images/favicon/favicon.png" rel="icon">
+  <title>Kweyi Foods</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7cShadows+Into+Light&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/libraries.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/sweetalert/sweetalert2.min.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- =========================
+        Header
+    =========================== -->
+    <header id="header" class="header header-transparent header-layout1">
+      <nav class="navbar navbar-expand-lg sticky-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo/logo-light.png" class="logo-light" alt="logo">
+            <img src="assets/images/logo/logo-dark.png" class="logo-dark" alt="logo">
+          </a>
+          <button class="navbar-toggler" type="button">
+            <span class="menu-lines"><span></span></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNavigation">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav__item with-dropdown">
+                <a href="home.html" class="dropdown-toggle nav__item-link">Home</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="aboutus.html" class="dropdown-toggle nav__item-link">About</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="menu.html" class="dropdown-toggle nav__item-link">Menu</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="shop.html" class="dropdown-toggle nav__item-link">Place Order</a>
+              </li><!-- /.nav-item -->
+              <li class="nav__item with-dropdown">
+                <a href="contactus.html" class="dropdown-toggle nav__item-link active">Contact Us</a>
+              </li><!-- /.nav-item -->
+              <!-- /.nav-item -->
+            </ul><!-- /.navbar-nav -->
+          </div><!-- /.navbar-collapse -->
+          <div class="navbar-actions-wrap">
+            <div class="navbar-actions d-flex align-items-center">
+              <a href="#" class="navbar__action-btn search-popup-trigger"><i class="fa fa-search"></i></a>
+              <a href="reservation.html"
+                class="navbar__action-btn navbar__action-btn-reserve btn btn__primary">Place Large Order</a>
+              <ul class="social__icons">
+                <li><a href="https://www.facebook.com/kweyifoods/"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://instagram.com/kweyifoods?igshid=zs6z4x6zyavo"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              </ul><!-- /.social__icons -->
+            </div><!-- /.navbar-actions -->
+          </div><!-- /.navbar-actions-wrap -->
+        </div><!-- /.container -->
+      </nav><!-- /.navabr -->
+    </header><!-- /.Header -->
+
+    <!-- ========================
+       page title 
+    =========================== -->
+    <section id="page-title" class="page-title page-title-layout1 text-center bg-overlay bg-overlay-2 bg-parallax">
+      <div class="bg-img"><img src="assets/images/backgrounds_kweyi/4.png" alt="background"></div>
+      <svg class="pagetitle__divider-shape" xmlns="http://www.w3.org/2000/svg" width="22" height="61"
+        viewBox="0 0 22 61">
+        <path
+          d="M799,769h2v61h-2V769Zm8,24.8a0.969,0.969,0,0,0-1.911,0,3.012,3.012,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.486,4.486,0,0,0,0,6.136,3.088,3.088,0,0,1,0,4.325,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.091,3.091,0,0,1,0-4.328,4.491,4.491,0,0,0,0-6.14,3.08,3.08,0,0,1,0-4.319,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.407,4.407,0,0,0,807,793.8Zm0-20a0.969,0.969,0,0,0-1.911,0,3.014,3.014,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.488,4.488,0,0,0,0,6.137,3.087,3.087,0,0,1,0,4.324,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.089,3.089,0,0,1,0-4.327,4.491,4.491,0,0,0,0-6.14,3.081,3.081,0,0,1,0-4.32,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.409,4.409,0,0,0,807,773.8ZM793,793.8a0.969,0.969,0,0,1,1.911,0,3.012,3.012,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.486,4.486,0,0,1,0,6.136,3.088,3.088,0,0,0,0,4.325,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.091,3.091,0,0,0,0-4.328,4.491,4.491,0,0,1,0-6.14,3.08,3.08,0,0,0,0-4.319,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.407,4.407,0,0,1,793,793.8Zm0-20a0.969,0.969,0,0,1,1.911,0,3.014,3.014,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.488,4.488,0,0,1,0,6.137,3.087,3.087,0,0,0,0,4.324,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.089,3.089,0,0,0,0-4.327,4.491,4.491,0,0,1,0-6.14,3.081,3.081,0,0,0,0-4.32,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.409,4.409,0,0,1,793,773.8Zm-4,5.2h2v41h-2V779Zm20,0h2v41h-2V779Z"
+          transform="translate(-789 -769)"></path>
+      </svg>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <span class="pagetitle__subheading">Get In Touch</span>
+            <h1 class="pagetitle__heading">Contact Us</h1>
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+    <!-- ==========================
+       Map
+    =========================== -->
+    <section id="google-map" class="google-map pb-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div id="map" style="height: 350px;"></div>
+            <script src="assets/js/google-map.js"></script>
+            <script>
+              // Initialize and add the map
+              function initMap() {
+                // The location of Uluru
+                var uluru = {lat: 5.652031, lng: -0.007255};
+                // The map, centered at Uluru
+                var map = new google.maps.Map(
+                    document.getElementById('map'), {zoom: 15, center: uluru});
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({position: uluru, map: map});
+              }
+            </script>
+            <script
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALAxH03G0Wzl7nM4hc3Or_pAllfxtddD0&amp;callback=initMap"
+              async defer></script>
+          </div><!-- /.col-lg-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Map -->
+
+    <!-- ==========================
+        contact 1
+    =========================== -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <p>Kweyi Foods is one of the best online restaurants in Accra. It is created with your favourite flavours in mind..</p>
+              </div><!-- /.col-lg-12 -->
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Our Address</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li>Tema Community 4, <br> Accra Ghana</li>
+                  </ul>
+                  <a href="#" class="btn btn__link">Get Directions</a>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Opening Hours</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li>Mon - Fri: 9:00 AM - 5:00 PM</li>
+                    <li>Sat: 9:00 AM - 5:00 PM</li>
+                  </ul>
+                  <a href="#" class="btn btn__link">Call Us</a>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Our Email</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li><span>Main Email:</span><a href="mailto:kweyilimited@gmail.com"> kweyilimited@gmail.com</a></li>
+                    <li><span>Phone:</span><a href="tel:233246615209"> 0240416860</a></li>
+                    <li><span>Whatsapp:</span><a href="tel:233246615209"> +233240416860</a></li>
+                  </ul>
+                  <a href="#" class="btn btn__link">Send a Message</a>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Follow Us</h6>
+                  <ul class="social__icons">
+                    <li><a href="https://www.facebook.com/ScheckskitchenDelivery/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  </ul><!-- /.social__icons -->
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <form id="myForm">
+                
+              <!-- Actions Value -->
+              <input type="hidden" name="actions" value="push_contactus">
+              <input type="hidden" name="sessioncode" value="" id="sessioncode_reservation">
+              <input type="hidden" name="apikey" value="474869734c3363443561774939744159456434704e43375567327138786a75574f36626856654b6c54727950514a4258525a667a6b53306d6e6f4d314676">
+
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group"><input type="text" class="form-control" placeholder="First Name:" name="first_name"></div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group"><input type="text" class="form-control" placeholder="Last Name:" name="last_name"></div>
+                </div><!-- /.col-lg-6 -->
+              </div><!-- /.row -->
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group"><input type="email" class="form-control" placeholder="Email:" name="email"></div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group"><input type="text" class="form-control" placeholder="Phone:" name="phone"></div>
+                </div><!-- /.col-lg-6 -->
+              </div><!-- /.row -->
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <div class="form-group mb-30"><textarea class="form-control" placeholder="Message" name="message_body"></textarea></div>
+                </div><!-- /.col-lg-12 -->
+              </div><!-- /.row -->
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <button type="submit" class="btn btn__primary btn__block">Send Message</button>
+                </div><!-- /.col-lg-12 -->
+              </div><!-- /.row -->
+            </form>
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.contact 1 -->
+
+    <!-- ========================
+      Footer
+    ========================== -->
+    <footer id="footer" class="footer footer-layout1 text-center bg-dark">
+      <div class="footer-inner">
+        <div class="container">
+          <div class="footer-top">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12 position-static">
+                <svg class="footer__divider-shape" xmlns="http://www.w3.org/2000/svg" width="22" height="61"
+                  viewBox="0 0 22 61">
+                  <path
+                    d="M799,769h2v61h-2V769Zm8,24.8a0.969,0.969,0,0,0-1.911,0,3.012,3.012,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.486,4.486,0,0,0,0,6.136,3.088,3.088,0,0,1,0,4.325,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.091,3.091,0,0,1,0-4.328,4.491,4.491,0,0,0,0-6.14,3.08,3.08,0,0,1,0-4.319,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.407,4.407,0,0,0,807,793.8Zm0-20a0.969,0.969,0,0,0-1.911,0,3.014,3.014,0,0,1-.883,2.16,4.486,4.486,0,0,0,0,6.136,3.083,3.083,0,0,1,0,4.32,4.488,4.488,0,0,0,0,6.137,3.087,3.087,0,0,1,0,4.324,4.5,4.5,0,0,0,0,6.142,3.014,3.014,0,0,1,.884,2.163,0.969,0.969,0,0,0,1.911,0,4.414,4.414,0,0,0-1.213-3.07,3.089,3.089,0,0,1,0-4.327,4.491,4.491,0,0,0,0-6.14,3.081,3.081,0,0,1,0-4.32,4.488,4.488,0,0,0,0-6.137,3.081,3.081,0,0,1,0-4.32A4.409,4.409,0,0,0,807,773.8ZM793,793.8a0.969,0.969,0,0,1,1.911,0,3.012,3.012,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.486,4.486,0,0,1,0,6.136,3.088,3.088,0,0,0,0,4.325,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.091,3.091,0,0,0,0-4.328,4.491,4.491,0,0,1,0-6.14,3.08,3.08,0,0,0,0-4.319,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.407,4.407,0,0,1,793,793.8Zm0-20a0.969,0.969,0,0,1,1.911,0,3.014,3.014,0,0,0,.883,2.16,4.486,4.486,0,0,1,0,6.136,3.083,3.083,0,0,0,0,4.32,4.488,4.488,0,0,1,0,6.137,3.087,3.087,0,0,0,0,4.324,4.5,4.5,0,0,1,0,6.142,3.014,3.014,0,0,0-.884,2.163,0.969,0.969,0,0,1-1.911,0,4.414,4.414,0,0,1,1.213-3.07,3.089,3.089,0,0,0,0-4.327,4.491,4.491,0,0,1,0-6.14,3.081,3.081,0,0,0,0-4.32,4.488,4.488,0,0,1,0-6.137,3.081,3.081,0,0,0,0-4.32A4.409,4.409,0,0,1,793,773.8Zm-4,5.2h2v41h-2V779Zm20,0h2v41h-2V779Z"
+                    transform="translate(-789 -769)"></path>
+                </svg>
+              </div><!-- /.col-lg-12 -->
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Our Address</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li>Tema Community 4 <br> Accra, Ghana</li>
+                  </ul>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-4 -->
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Opening Hours</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li>Mon - Fri: 9:00 AM - 5:00 PM</li>
+                    <li>Sat: 9: 00 AM - 5:00 PM</li>
+                  </ul>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-4 -->
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-box">
+                  <h6 class="contact__box-title">Private Dining</h6>
+                  <ul class="contact__box-list list-unstyled">
+                    <li><span>Main Email:</span><a href="mailto:kweyifoods@gmail.com"> kweyilimited@gmail.com</a></li>
+                    <li><span>Phone:</span><a href="tel:233246615209"> 0240416860</a></li>
+                    <li><span>Whatsapp:</span><a href="tel:233246615209"> +233240416860</a></li>
+                  </ul>
+                </div><!-- /.contact-box -->
+              </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+          </div><!-- /.footer-top -->
+          <div class="footer-middle">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12 position-static">
+                <div class="footer__logo-wrap text-center">
+                  <img src="assets/images/logo/footer-logo.png" alt="logo" class="footer__logo">
+                </div>
+              </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                <p class="mb-20">Kweyi Foods is one of the best online restaurants in Accra. It is created with your favourite flavours in mind.
+                </p>
+                <a href="shop.html" class="btn btn__primary btn__bordered btn__lg">Place Order Now!</a>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </div><!-- /.footer-middle -->
+        </div><!-- /.container -->
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="footer__copyright mb-30">
+                  <span>&copy; Kweyi Foods, With Love by </span>
+                  <a href="http://vondee.me" class="color-theme">vondee.me</a>
+                </div>
+                <ul class="social__icons social__icons-white justify-content-center">
+                  <li><a href="https://www.facebook.com/kweyifoods/"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://instagram.com/kweyifoods?igshid=zs6z4x6zyavo"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul><!-- /.social__icons -->
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+          <svg class="footer__divider-shape-bottom" xmlns="http://www.w3.org/2000/svg" width="142" height="17"
+            viewBox="0 0 142 17">
+            <path
+              d="M800,600V583c8.782,15.985,46.811,11.315,56,12a35.721,35.721,0,0,1,15,5m-71,0V583c-8.782,15.985-46.811,11.315-56,12a35.717,35.717,0,0,0-15,5"
+              transform="translate(-729 -583)"></path>
+          </svg>
+        </div><!-- /.Footer-bottom -->
+      </div><!-- /.Footer-inner -->
+    </footer><!-- /.Footer -->
+    <button id="scrollTopBtn"><i class="fa fa-angle-up"></i></button>
+
+    <div class="search-popup">
+      <i class="fa fa-times close-search"></i>
+      <form class="module__search-form">
+        <input type="text" class="search__input" placeholder="Type Words Then Enter">
+        <button class="module__search-btn"><i class="fa fa-search"></i></button>
+      </form>
+    </div><!-- /.search-popup -->
+
+  </div>
+  <!-- /.wrapper -->
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/provider.js"></script>
+  <script src="assets/sweetalert/sweetalert2.min.js"></script>
+</body>
+
+
+<!-- Mirrored from 7oroof.com/demos/babette/contacts.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Aug 2020 10:25:42 GMT -->
+</html>
